@@ -1,4 +1,14 @@
+h1,
+h2,
+h3 {
+    font-family: $font-family-fallback;
+
+    .wf-active & {
+        font-family: $font-family-heading;
+    }
+}
+
 p {
-    font-size: $font-size-sm;
+    font-size: $font-size-normal;
     line-height: $line-height;
 }

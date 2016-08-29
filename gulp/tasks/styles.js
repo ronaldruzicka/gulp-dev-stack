@@ -11,19 +11,19 @@ import cssGlobbing from 'gulp-css-globbing';
 import cssnano from 'cssnano';
 import mqpacker from 'css-mqpacker';
 import pxtorem from 'postcss-pxtorem';
-// import fontMagician from 'postcss-font-magician'; // waiting for use variants of font
 import config from '../config';
+import flexbugsFixes from 'postcss-flexbugs-fixes';
 
 const { src, dist, names } = config.paths;
 const isProd = argv.prod || false;
 
 gulp.task('styles', () => {
     let postCssPlugins = [
+        flexbugsFixes,
         autoprefixer({ browsers: ['last 2 versions'] }),
         pxtorem({
-            prop_white_list: ['width', 'height', 'font', 'font-size', 'line-height', 'letter-spacing']
+            prop_white_list: ['width', 'height', 'font', 'font-size', 'letter-spacing']
         }),
-        // fontMagician(),
         mqpacker()
     ];
     let postCssProd = [

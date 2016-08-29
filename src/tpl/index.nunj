@@ -11,8 +11,6 @@
 {{ secondary('Secondary') }}
 {{ success('Success') }}
 
-<div class="alert">foo
-    <hr>
-    <div class="alert-link">foo link</div>
-</div>
+<hr>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, ipsum, optio! Ratione atque illo excepturi, eligendi non, esse, sunt dolorem, blanditiis dolores in dolor sint magnam suscipit dignissimos! Ut, quia.</p>
 {% endblock %}
