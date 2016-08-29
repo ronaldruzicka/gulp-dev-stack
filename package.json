@@ -29,20 +29,49 @@
     },
     "rules": {
       "semi": "error",
-      "quotes": ["error", "single"],
-      "strict": ["error", "never"],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "strict": [
+        "error",
+        "never"
+      ],
       "keyword-spacing": "error",
-      "one-var": ["error", "never"],
+      "one-var": [
+        "error",
+        "never"
+      ],
       "no-empty": "error",
-      "space-in-parens": ["error", "never"],
-      "space-before-function-paren": ["error", "never"],
-      "no-spaced-func": ["error"],
-      "no-multiple-empty-lines": ["error", {
-        "max": 1
-      }],
-      "linebreak-style": ["error", "unix"],
-      "indent": ["error", 4],
-      "arrow-parens": ["error", "always"],
+      "space-in-parens": [
+        "error",
+        "never"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "no-spaced-func": [
+        "error"
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1
+        }
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "indent": [
+        "error",
+        4
+      ],
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
       "arrow-spacing": "error"
     }
   },
@@ -79,6 +108,7 @@
     "postcss-pxtorem": "^3.3.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "svgxuse": "^1.1.20",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
     "webfontloader": "^1.6.26",

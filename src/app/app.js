@@ -1,3 +1,4 @@
+import 'svgxuse';
 import HelloWorld from './module/hello-world';
 
 const app = {};
