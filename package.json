@@ -28,40 +28,22 @@
       "sourceType": "module"
     },
     "rules": {
-      "semi": 2,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "strict": [
-        2,
-        "never"
-      ],
-      "keyword-spacing": 2,
-      "one-var": [
-        2,
-        "never"
-      ],
-      "no-empty": 2,
-      "space-in-parens": [
-        2,
-        "never"
-      ],
-      "space-before-function-paren": [
-        2,
-        "never"
-      ],
-      "no-spaced-func": 2,
-      "no-multiple-empty-lines": [
-        2,
-        {
-          "max": 1
-        }
-      ],
-      "linebreak-style": [
-        2,
-        "unix"
-      ]
+      "semi": "error",
+      "quotes": ["error", "single"],
+      "strict": ["error", "never"],
+      "keyword-spacing": "error",
+      "one-var": ["error", "never"],
+      "no-empty": "error",
+      "space-in-parens": ["error", "never"],
+      "space-before-function-paren": ["error", "never"],
+      "no-spaced-func": ["error"],
+      "no-multiple-empty-lines": ["error", {
+        "max": 1
+      }],
+      "linebreak-style": ["error", "unix"],
+      "indent": ["error", 4],
+      "arrow-parens": ["error", "always"],
+      "arrow-spacing": "error"
     }
   },
   "devDependencies": {
@@ -79,7 +61,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-css-globbing": "^0.1.8",
-    "gulp-eslint": "^2.0.0",
+    "gulp-eslint": "^3.0.1",
     "gulp-if": "^2.0.0",
     "gulp-nunjucks": "^2.1.1",
     "gulp-plumber": "^1.0.1",
