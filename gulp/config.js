@@ -1,4 +1,5 @@
 export default {
+    port: 1100,
     paths: {
         gulpfile: './gulpfile.babel.js',
         src: {
