@@ -4,7 +4,6 @@ export default {
         gulpfile: './gulpfile.babel.js',
         src: {
             base: './src',
-            bower: './bower_components',
             app: {
                 base: './app',
                 entry: './src/app/app.js',
