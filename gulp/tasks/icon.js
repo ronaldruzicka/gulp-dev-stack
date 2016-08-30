@@ -6,7 +6,7 @@ import path from 'path';
 import config from '../config';
 
 const { src, dist } = config.paths;
-const isProd = argv.dev || false;
+const isProd = argv.prod || false;
 
 gulp.task('icon', () => {
     return gulp.src(src.icon.entry)
