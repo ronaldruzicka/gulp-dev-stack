@@ -25,14 +25,16 @@ export default {
                 base: './src/tpl',
                 entry: './src/tpl/*.nunj',
                 all: './src/tpl/**/*.nunj'
-            }
+            },
+            favicon: './src/favicon/'
         },
         dist: {
             base: './dist',
             css: './dist/css',
             js: './dist/js',
             html: './dist/*.html',
-            icon: './dist/gfx/icon'
+            icon: './dist/gfx/icon',
+            favicon: './dist/favicon'
         },
         names: {
             css: {
