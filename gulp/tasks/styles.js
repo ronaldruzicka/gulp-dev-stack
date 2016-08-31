@@ -1,18 +1,18 @@
-import gulp from 'gulp';
 import { argv } from 'yargs';
-import sass from 'gulp-sass';
-import gulpif from 'gulp-if';
-import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import rename from 'gulp-rename';
-import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync';
+import config from '../config';
 import cssGlobbing from 'gulp-css-globbing';
 import cssnano from 'cssnano';
-import mqpacker from 'css-mqpacker';
-import pxtorem from 'postcss-pxtorem';
-import config from '../config';
 import flexbugsFixes from 'postcss-flexbugs-fixes';
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import mqpacker from 'css-mqpacker';
+import postcss from 'gulp-postcss';
+import pxtorem from 'postcss-pxtorem';
+import rename from 'gulp-rename';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
 const { src, dist, names } = config.paths;
 const isProd = argv.prod || false;

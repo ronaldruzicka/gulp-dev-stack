@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import { argv } from 'yargs';
+import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
 // run-sequence until gulp 4.0 is introduced

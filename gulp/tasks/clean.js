@@ -1,7 +1,7 @@
-import gulp from 'gulp';
 import { argv } from 'yargs';
-import del from 'del';
 import config from '../config';
+import del from 'del';
+import gulp from 'gulp';
 
 const {
     src: { styles, app, icon, html },

@@ -9,12 +9,12 @@ const {
     src,
     dist
 } = config.paths;
+const isProd = argv.prod || false;
 const colors = {
     bgAndroid: '#fff',
     bgSafari: '#d34a47',
     bgWin: '#b91d47'
 };
-const isProd = argv.prod || false;
 
 // File where the favicon markups are stored
 const FAVICON_DATA_FILE = 'faviconData.json';

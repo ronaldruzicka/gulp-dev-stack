@@ -1,9 +1,9 @@
-import gulp from 'gulp';
 import { argv } from 'yargs';
-import svgstore from 'gulp-svgstore';
-import svgmin from 'gulp-svgmin';
-import path from 'path';
 import config from '../config';
+import gulp from 'gulp';
+import path from 'path';
+import svgmin from 'gulp-svgmin';
+import svgstore from 'gulp-svgstore';
 
 const { src, dist } = config.paths;
 const isProd = argv.prod || false;
