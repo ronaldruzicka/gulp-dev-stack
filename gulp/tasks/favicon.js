@@ -1,4 +1,4 @@
-import argv from 'yargs';
+import { argv } from 'yargs';
 import config from '../config';
 import del from 'del';
 import fs from 'fs';
@@ -26,7 +26,7 @@ const FAVICON_DATA_FILE = 'faviconData.json';
 gulp.task('generate-favicon', function(done) {
     realFavicon.generateFavicon({
         // TODO: how to generate two different favicons? eg: metro/makro?
-        masterPicture: `${src.base}/gfx/favicon-grunt.png`,
+        masterPicture: `${src.base}/gfx/favicon.png`,
         dest: isProd ? dist.favicon : src.favicon,
         iconsPath: '/favicon/',
         design: {
@@ -91,7 +91,6 @@ gulp.task('generate-favicon', function(done) {
 gulp.task('inject-favicon-markups', function() {
     gulp.src(isProd ? dist.html : src.html)
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-        // TODO: doesn't work for production!!!
         .pipe(gulp.dest(isProd ? dist.base : src.base));
 });
 
