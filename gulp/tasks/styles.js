@@ -1,24 +1,27 @@
-import { argv } from 'yargs';
-import autoprefixer from 'autoprefixer';
-import browserSync from 'browser-sync';
-import config from '../config';
-import cssGlobbing from 'gulp-css-globbing';
-import cssnano from 'cssnano';
-import flexbugsFixes from 'postcss-flexbugs-fixes';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import mqpacker from 'css-mqpacker';
-import postcss from 'gulp-postcss';
-import pxtorem from 'postcss-pxtorem';
-import rename from 'gulp-rename';
-import sass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
+const argv = require('yargs').argv;
+const autoprefixer = require('autoprefixer');
+const browserSync = require('browser-sync');
+const config = require('../config');
+const cssGlobbing = require('gulp-css-globbing');
+const cssnano = require('cssnano');
+const flexbugsFixes = require('postcss-flexbugs-fixes');
+const gulp = require('gulp');
+const gulpif = require('gulp-if');
+const mqpacker = require('css-mqpacker');
+const postcss = require('gulp-postcss');
+const pxtorem = require('postcss-pxtorem');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 
-const { src, dist, names } = config.paths;
+const dist = config.paths.dist;
+const names = config.names;
+const src = config.paths.src;
+
 const isProd = argv.prod || false;
 
 gulp.task('styles', () => {
-    let postCssPlugins = [
+    const postCssPlugins = [
         flexbugsFixes,
         autoprefixer({ browsers: ['last 2 versions'] }),
         pxtorem({
@@ -26,7 +29,7 @@ gulp.task('styles', () => {
         }),
         mqpacker()
     ];
-    let postCssProd = [
+    const postCssDistPlugins = [
         cssnano({
             'reduceIdents': false
         })
@@ -41,7 +44,7 @@ gulp.task('styles', () => {
         .pipe(gulpif(!isProd, sourcemaps.write()))
         .pipe(gulpif(!isProd, gulp.dest(src.styles.dest)))
         .pipe(gulpif(!isProd, browserSync.stream()))
-        .pipe(gulpif(isProd, postcss(postCssProd)))
+        .pipe(gulpif(isProd, postcss(postCssDistPlugins)))
         .pipe(gulpif(isProd, rename(names.css.min)))
         .pipe(gulpif(isProd, gulp.dest(dist.css)));
 });

@@ -1,14 +1,14 @@
-import { argv } from 'yargs';
-import { copy as copyToClipboard } from 'copy-paste';
-import browserSync from 'browser-sync';
-import config from '../config';
-import gulp from 'gulp';
-import gutil from 'gulp-util';
+const argv = require('yargs').argv;
+const browserSync = require('browser-sync');
+const config = require('../config');
+const copyToClipboard = require('copy-paste').copy;
+const gulp = require('gulp');
+const gutil = require('gulp-util');
 
-const {
-    port,
-    paths: { gulpfile, src, dist }
-} = config;
+const dist = config.paths.dist;
+const gulpfile = config.paths.gulpfile;
+const port = config.port;
+const src = config.paths.src;
 
 // For production (minified files) run "gulp --prod"
 const isProd = argv.prod || false;

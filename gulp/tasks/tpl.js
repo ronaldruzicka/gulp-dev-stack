@@ -1,25 +1,42 @@
-import { argv } from 'yargs';
-import { Environment, FileSystemLoader } from 'nunjucks';
-import browserSync from 'browser-sync';
-import config from '../config';
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import nunjucks from 'gulp-nunjucks';
-import plumber from 'gulp-plumber';
-import rename from 'gulp-rename';
+const argv = require('yargs').argv;
+const browserSync = require('browser-sync');
+const config = require('../config');
+const glob = require('glob');
+const gulp = require('gulp');
+const gulpif = require('gulp-if');
+const gutil = require('gulp-util');
+const nunj = require('nunjucks');
+const nunjucks = require('gulp-nunjucks');
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 
-const { src, dist } = config.paths;
+const Environment = nunj.Environment;
+const FileSystemLoader = nunj.FileSystemLoader;
+
+const dist = config.paths.dist;
+const entry = config.paths.src.tpl.entry;
+const src = config.paths.src;
+
 const isProd = argv.prod || false;
+
+function getPagesList() {
+    // Get all nunjucks page templates to create a list of available pages
+    return glob.sync(entry)
+        .map((pathname) => pathname.replace(/\.[^\.]+$/, '').substring(pathname.lastIndexOf('/') + 1, pathname.length - 1))
+        .filter((name) => 'index' !== name);
+}
 
 gulp.task('tpl', () => {
     const data = {
+        '_pages': getPagesList(),
         '_prod': isProd
     };
     const searchPaths = isProd ? [src.tpl.base, dist.icon] : [src.tpl.base, src.icon.dest];
     const options = {
         noCache: true
     };
-    gulp.src(src.tpl.entry)
+
+    gulp.src(entry)
         // Temporary fix for gulp's error handling within streams, see https://github.com/actum/gulp-dev-stack/issues/7#issuecomment-152490084
         .pipe(plumber({
             errorHandler: (e) => gutil.log(gutil.colors.red(`${e.name} in ${e.plugin}: ${e.message}`))
@@ -30,7 +47,6 @@ gulp.task('tpl', () => {
                 new FileSystemLoader(searchPaths, options)
             )
         }))
-        .pipe(nunjucks.compile(data))
         .pipe(rename((path) => path.extname = '.html'))
         .pipe(gulp.dest(isProd ? dist.base : src.base))
         .pipe(browserSync.stream({ once: true }));

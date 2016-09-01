@@ -1,20 +1,19 @@
-import { argv } from 'yargs';
-import config from '../config';
-import del from 'del';
-import fs from 'fs';
-import gulp from 'gulp';
-import realFavicon from 'gulp-real-favicon';
+const argv = require('yargs').argv;
+const config = require('../config');
+const del = require('del');
+const fs = require('fs');
+const gulp = require('gulp');
+const realFavicon = require('gulp-real-favicon');
 
-const {
-    src,
-    dist
-} = config.paths;
-const isProd = argv.prod || false;
+const dist = config.paths.dist;
+const src = config.paths.src;
+
 const colors = {
     bgAndroid: '#fff',
     bgSafari: '#d34a47',
     bgWin: '#b91d47'
 };
+const isProd = argv.prod || false;
 
 // File where the favicon markups are stored
 const FAVICON_DATA_FILE = 'faviconData.json';

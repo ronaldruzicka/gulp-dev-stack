@@ -1,10 +1,12 @@
-import { argv } from 'yargs';
-import config from '../config';
-import eslint from 'gulp-eslint';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
+const argv = require('yargs').argv;
+const config = require('../config');
+const eslint = require('gulp-eslint');
+const gulp = require('gulp');
+const gulpif = require('gulp-if');
 
-const { gulpfile, src } = config.paths;
+const gulpfile = config.paths.gulpfile;
+const src = config.paths.src;
+
 const isProd = argv.prod || false;
 
 const lint = (globs) => {

@@ -1,18 +1,21 @@
-import { argv } from 'yargs';
-import babelify from 'babelify';
-import browserify from 'browserify';
-import browserSync from 'browser-sync';
-import config from '../config';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import gutil from 'gulp-util';
-import rename from 'gulp-rename';
-import source from 'vinyl-source-stream';
-import streamify from 'gulp-streamify';
-import uglify from 'gulp-uglify';
-import watchify from 'watchify';
+const argv = require('yargs').argv;
+const babelify = require('babelify');
+const browserify = require('browserify');
+const browserSync = require('browser-sync');
+const config = require('../config');
+const gulp = require('gulp');
+const gulpif = require('gulp-if');
+const gutil = require('gulp-util');
+const rename = require('gulp-rename');
+const source = require('vinyl-source-stream');
+const streamify = require('gulp-streamify');
+const uglify = require('gulp-uglify');
+const watchify = require('watchify');
 
-const { src, dist, names } = config.paths;
+const dist = config.paths.dist;
+const names = config.names;
+const src = config.paths.src;
+
 const isProd = argv.prod || false;
 
 const bundle = () => {

@@ -72,7 +72,8 @@
         "error",
         "always"
       ],
-      "arrow-spacing": "error"
+      "arrow-spacing": "error",
+      "sort-imports": "error"
     }
   },
   "devDependencies": {
@@ -88,6 +89,7 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.5.2",
     "del": "^2.2.0",
+    "glob": "^7.0.6",
     "gulp": "^3.9.0",
     "gulp-css-globbing": "^0.1.8",
     "gulp-eslint": "^3.0.1",

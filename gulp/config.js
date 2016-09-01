@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     port: 1100,
     paths: {
         gulpfile: './gulpfile.babel.js',
@@ -35,16 +35,16 @@ export default {
             html: './dist/*.html',
             icon: './dist/gfx/icon',
             favicon: './dist/favicon'
+        }
+    },
+    names: {
+        css: {
+            src: 'style.css',
+            min: 'style.min.css'
         },
-        names: {
-            css: {
-                src: 'style.css',
-                min: 'style.min.css'
-            },
-            js: {
-                src: 'app.js',
-                min: 'app.min.js'
-            }
+        js: {
+            src: 'app.js',
+            min: 'app.min.js'
         }
     }
 };

@@ -1,6 +1,6 @@
 // Gulp plugins configuration
-import gulp from 'gulp';
-import requireDir from 'require-dir';
+const gulp = require('gulp');
+const requireDir = require('require-dir');
 
 requireDir('./gulp/tasks');
 

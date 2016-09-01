@@ -1,11 +1,13 @@
-import { argv } from 'yargs';
-import config from '../config';
-import gulp from 'gulp';
-import path from 'path';
-import svgmin from 'gulp-svgmin';
-import svgstore from 'gulp-svgstore';
+const argv = require('yargs').argv;
+const config = require('../config');
+const gulp = require('gulp');
+const path = require('path');
+const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
 
-const { src, dist } = config.paths;
+const dist = config.paths.dist;
+const src = config.paths.src;
+
 const isProd = argv.prod || false;
 
 gulp.task('icon', () => {
