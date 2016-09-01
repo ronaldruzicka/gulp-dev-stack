@@ -1,12 +1,11 @@
 // Bootstrap
-@import 'bootstrap/bootstrap';
+@import '3rd-party/_bootstrap';
 
 // Variables
-@import 'vars';
-@import 'mixins';
+@import '_vars';
 
-// Typography
-@import 'typography/*';
+// Base
+@import 'base/*';
 
 // Layout
 @import 'layout/*';
