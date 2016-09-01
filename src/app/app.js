@@ -1,5 +1,5 @@
 import 'svgxuse';
-import HelloWorld from './module/hello-world';
+import HelloWorld from './components/hello-world';
 
 const app = {};
 
