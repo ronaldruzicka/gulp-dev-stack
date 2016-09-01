@@ -1,0 +1,3 @@
+{% macro paragraph(text, class) %}
+<p {% if class %}class="{{ class }}"{% endif %}>{{ text }}</p>
+{% endmacro %}

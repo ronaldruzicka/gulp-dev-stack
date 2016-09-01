@@ -1,4 +1,4 @@
-{% from 'helper/svg.nunj' import svg %}
+{% from '../atoms/svg.nunj' import svg %}
 
 <nav class="main-nav">
     <ul class="main-nav__list container">

@@ -1,11 +1,22 @@
-{% extends "./layout/default.nunj" %}
-{% from "./partials/components/buttons.nunj" import btnLink as link, btnPrimary as primary, btnSecondary as secondary, btnSuccess as success %}
+{% extends "./layout/layout.nunj" %}
+{% from "./atoms/buttons.nunj" import
+    btnLink as link,
+    btnPrimary as primary,
+    btnSecondary as secondary,
+    btnSuccess as success %}
 {% set data = {
     title: 'Gulp dev stack'
 } %}
 
 {% block content %}
 <h1>{{ data.title }}</h1>
+
+<ul>
+    {% for path in _pages %}
+    <li><a href="{{ path }}.html">{{ path }}</a></li>
+    {% endfor %}
+</ul>
+
 {{ link('Link') }}
 {{ primary('Primary') }}
 {{ secondary('Secondary') }}

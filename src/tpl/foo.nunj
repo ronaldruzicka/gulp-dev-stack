@@ -1,0 +1,7 @@
+{% extends "layout/layout.nunj" %}
+{% from "./atoms/paragraph.nunj" import paragraph as p %}
+{% set title = "Gulpie" %}
+
+{% block content %}
+    {{ p('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ad explicabo at ea hic architecto vero molestiae quae qui commodi voluptas voluptatum odio autem suscipit dignissimos, ipsa quas. Distinctio, possimus!', 'text-class') }}
+{% endblock %}
