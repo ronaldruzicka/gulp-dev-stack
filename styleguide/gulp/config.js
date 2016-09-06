@@ -37,6 +37,9 @@ export default {
             icon: './dist/public/gfx/icon',
             html: './dist'
         },
+        boilerplate: {
+            all: './boilerplate/**/*.less'
+        },
         styleguide: {
             base: './styleguide',
             css: './styleguide/public/css',
