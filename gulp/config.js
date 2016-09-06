@@ -35,6 +35,15 @@ module.exports = {
             html: './dist/*.html',
             icon: './dist/gfx/icon',
             favicon: './dist/favicon'
+        },
+        styleguide: {
+            base: './styleguide-test',
+            source: './src/styles/components',
+            destination: './styleguide-test/styleguide',
+            template: './styleguide/dist',
+            css: './css/style.css',
+            copyCss: true,
+            js: []
         }
     },
     names: {

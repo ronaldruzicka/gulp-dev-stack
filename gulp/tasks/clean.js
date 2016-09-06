@@ -4,13 +4,14 @@ const del = require('del');
 const gulp = require('gulp');
 
 const app = config.paths.src.app;
+const dist = config.paths.dist;
 const html = config.paths.src.html;
 const icon = config.paths.src.icon;
-const dist = config.paths.dist;
+const styleguide = config.paths.styleguide;
 const styles = config.paths.src.styles;
 
 const distDest = dist.base;
-const srcDest = [styles.dest, app.dest, icon.dest, html];
+const srcDest = [styles.dest, app.dest, icon.dest, html, styleguide.base];
 
 const isProd = argv.prod || false;
 /**

@@ -9,15 +9,18 @@ const dist = config.paths.dist;
 const gulpfile = config.paths.gulpfile;
 const port = config.port;
 const src = config.paths.src;
+const styleguide = config.paths.styleguide;
 
 // For production (minified files) run "gulp --prod"
 const isProd = argv.prod || false;
 
 gulp.task('serve', ['prepare'], () => {
+    const baseDir = isProd ? dist.base : [src.base, styleguide.base];
+
     browserSync({
         open: false,
         port,
-        server: isProd ? dist.base : src.base
+        server: { baseDir }
     }, () => copyToClipboard(`localhost:${port}`, () => gutil.log(gutil.colors.green('Local server address has been copied to your clipboard'))));
 
     const sanitize = (pathname) => pathname.replace(/^\.\//, '');
