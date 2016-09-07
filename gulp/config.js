@@ -37,10 +37,10 @@ module.exports = {
             favicon: './dist/favicon'
         },
         styleguide: {
-            base: './styleguide-test',
+            base: './styleguide',
             source: './src/styles/components',
-            destination: './styleguide-test/styleguide',
-            template: './styleguide/dist',
+            destination: './styleguide/styleguide',
+            template: './node_modules/styleguide/dist',
             css: './css/style.css',
             copyCss: true,
             js: []

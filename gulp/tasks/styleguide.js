@@ -1,3 +1,4 @@
+const browserSync = require('browser-sync');
 const config = require('../config');
 const gulp = require('gulp');
 const kss = require('kss');
@@ -23,6 +24,8 @@ const styleguideOptions = {
 };
 
 // kss-node 2.3.1 and later.
-gulp.task('styleguide', function(cb) {
-    kss(styleguideOptions, cb);
+gulp.task('styleguide', () => {
+    kss(styleguideOptions, () => {
+        browserSync.reload();
+    });
 });
