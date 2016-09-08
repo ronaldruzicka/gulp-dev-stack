@@ -1,7 +1,7 @@
 module.exports = {
     port: 1100,
     paths: {
-        gulpfile: './gulpfile.babel.js',
+        gulpfile: './gulpfile.js',
         src: {
             base: './src',
             app: {
