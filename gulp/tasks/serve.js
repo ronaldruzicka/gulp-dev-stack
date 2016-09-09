@@ -4,6 +4,7 @@ const config = require('../config');
 const copyToClipboard = require('copy-paste').copy;
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const runSequence = require('run-sequence');
 
 const dist = config.paths.dist;
 const gulpfile = config.paths.gulpfile;
@@ -15,6 +16,7 @@ const styleguide = config.paths.styleguide;
 const isProd = argv.prod || false;
 
 gulp.task('serve', ['prepare'], () => {
+    console.log(isProd);
     const baseDir = isProd ? dist.base : [src.base, styleguide.base];
 
     browserSync({
@@ -28,7 +30,7 @@ gulp.task('serve', ['prepare'], () => {
 
     if (!isProd) {
         watch(src.app.all, ['lint']);
-        watch(src.styles.all, ['styles', 'styleguide']);
+        watch(src.styles.all, () => runSequence(['styles', 'styleguide']));
         watch(src.tpl.all, ['tpl']);
         watch(gulpfile, ['lint:gulpfile']);
     }
