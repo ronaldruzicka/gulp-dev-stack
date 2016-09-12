@@ -13,6 +13,7 @@ const rename = require('gulp-rename');
 const Environment = nunj.Environment;
 const FileSystemLoader = nunj.FileSystemLoader;
 
+// const { src, dist } = config.paths;
 const dist = config.paths.dist;
 const entry = config.paths.src.tpl.entry;
 const src = config.paths.src;
@@ -31,7 +32,7 @@ gulp.task('tpl', () => {
         '_pages': getPagesList(),
         '_prod': isProd
     };
-    const searchPaths = isProd ? [src.tpl.base, dist.icon] : [src.tpl.base, src.icon.dest];
+    const searchPaths = [src.tpl.base, dist.icon];
     const options = {
         noCache: true
     };
@@ -48,6 +49,6 @@ gulp.task('tpl', () => {
             )
         }))
         .pipe(rename((path) => path.extname = '.html'))
-        .pipe(gulp.dest(isProd ? dist.base : src.base))
+        .pipe(gulp.dest(dist.base))
         .pipe(browserSync.stream({ once: true }));
 });

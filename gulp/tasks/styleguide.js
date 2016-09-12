@@ -4,8 +4,8 @@ const gulp = require('gulp');
 const kss = require('kss');
 const path = require('path');
 
+// const { dist, styleguide } = config;
 const dist = config.paths.dist;
-const names = config.paths.names;
 const styleguide = config.paths.styleguide;
 
 const styleguideOptions = {

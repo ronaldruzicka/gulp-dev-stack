@@ -1,10 +1,10 @@
-const argv = require('yargs').argv;
 const config = require('../config');
 const del = require('del');
 const fs = require('fs');
 const gulp = require('gulp');
 const realFavicon = require('gulp-real-favicon');
 
+// const { src, dist } = config.paths;
 const dist = config.paths.dist;
 const src = config.paths.src;
 
@@ -13,7 +13,6 @@ const colors = {
     bgSafari: '#d34a47',
     bgWin: '#b91d47'
 };
-const isProd = argv.prod || false;
 
 // File where the favicon markups are stored
 const FAVICON_DATA_FILE = 'faviconData.json';
@@ -26,8 +25,8 @@ gulp.task('generate-favicon', function(done) {
     realFavicon.generateFavicon({
         // TODO: how to generate two different favicons? eg: metro/makro?
         masterPicture: `${src.base}/gfx/favicon.png`,
-        dest: isProd ? dist.favicon : src.favicon,
-        iconsPath: '/favicon/',
+        dest: dist.favicon, // 'dist.base' if from root folder
+        iconsPath: '/favicon/', // '/' if from root folder
         design: {
             ios: {
                 pictureAspect: 'noChange',
@@ -88,9 +87,9 @@ gulp.task('generate-favicon', function(done) {
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', function() {
-    gulp.src(isProd ? dist.html : src.html)
+    gulp.src(dist.html)
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-        .pipe(gulp.dest(isProd ? dist.base : src.base));
+        .pipe(gulp.dest(dist.base));
 });
 
 // Check for updates on RealFaviconGenerator (think: Apple has just

@@ -14,8 +14,8 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
+// const { src, dist } = config.paths;
 const dist = config.paths.dist;
-const names = config.names;
 const src = config.paths.src;
 
 const isProd = argv.prod || false;
@@ -40,11 +40,10 @@ gulp.task('styles', () => {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(postCssPlugins))
-        .pipe(rename(names.css.src))
         .pipe(gulpif(!isProd, sourcemaps.write()))
-        .pipe(gulpif(!isProd, gulp.dest(src.styles.dest)))
+        .pipe(gulp.dest(dist.css))
         .pipe(gulpif(!isProd, browserSync.stream()))
         .pipe(gulpif(isProd, postcss(postCssDistPlugins)))
-        .pipe(gulpif(isProd, rename(names.css.min)))
+        .pipe(gulpif(isProd, rename((path) => path.basename += '.min')))
         .pipe(gulpif(isProd, gulp.dest(dist.css)));
 });

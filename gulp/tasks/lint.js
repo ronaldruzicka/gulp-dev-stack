@@ -4,6 +4,7 @@ const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 
+// const { gulpfile, src } = config.paths;
 const gulpfile = config.paths.gulpfile;
 const src = config.paths.src;
 
@@ -24,5 +25,5 @@ const lint = (globs) => {
         .pipe(gulpif(isProd, eslint.failOnError()));
 };
 gulp.task('lint:app', () => lint(src.app.all));
-gulp.task('lint:gulpfile', () => lint(gulpfile));
+gulp.task('lint:gulpfile', () => lint([gulpfile.entry, gulpfile.tasks]));
 gulp.task('lint', ['lint:gulpfile', 'lint:app']);

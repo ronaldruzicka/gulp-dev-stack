@@ -14,6 +14,10 @@ const uglify = require('gulp-uglify');
 const uglifyify = require('uglifyify');
 const watchify = require('watchify');
 
+// const {
+//     names,
+//     paths: { src, dist }
+// } = config;
 const dist = config.paths.dist;
 const names = config.names;
 const src = config.paths.src;
@@ -34,7 +38,7 @@ const bundle = () => {
             .pipe(source(names.js.src))
             .pipe(gulpif(isProd, streamify(uglify())))
             .pipe(gulpif(isProd, rename(names.js.min)))
-            .pipe(gulp.dest(isProd ? dist.js : src.app.dest))
+            .pipe(gulp.dest(dist.js))
             .pipe(browserSync.stream());
     };
     bundler

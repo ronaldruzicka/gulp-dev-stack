@@ -1,25 +1,24 @@
 module.exports = {
     port: 1100,
     paths: {
-        gulpfile: './gulpfile.js',
+        gulpfile: {
+            entry: './gulpfile.js',
+            tasks: './gulp/**/*.js',
+        },
+        npm: './node_modules',
         src: {
             base: './src',
             app: {
                 base: './app',
                 entry: './src/app/app.js',
-                all: './src/app/**/*.js',
-                dest: './src/js'
+                all: './src/app/**/*.js'
             },
             html: './src/*.html',
-            icon: {
-                entry: './src/gfx/svg/*.svg',
-                dest: './src/gfx/icon'
-            },
+            icon: './src/gfx/svg/*.svg',
             styles: {
                 base: './src/styles',
-                entry: './src/styles/main.scss',
-                all: './src/styles/**/*.scss',
-                dest: './src/css'
+                entry: './src/styles/style.scss',
+                all: './src/styles/**/*.scss'
             },
             tpl: {
                 base: './src/tpl',
