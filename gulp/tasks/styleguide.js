@@ -29,4 +29,3 @@ gulp.task('styleguide', () => {
         browserSync.reload();
     });
 });
-// TODO: make it work in production build
