@@ -1,3 +1,3 @@
-const HelloWorld = (message) => console.log(message);
-
-module.exports = HelloWorld;
+export default function helloWorld(container, config) {
+    console.log(config);
+}

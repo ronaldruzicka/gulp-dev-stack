@@ -119,7 +119,9 @@
     "yargs": "^4.1.0"
   },
   "main": "gulpfile.babel.js",
-  "dependencies": {},
+  "dependencies": {
+    "font-face-observer": "^1.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

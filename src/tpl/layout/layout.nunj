@@ -5,6 +5,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ titile }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower" rel="stylesheet">
         {% if _prod %}
         <link rel="stylesheet" href="css/style.min.css">
         {% else %}
@@ -26,18 +27,9 @@
         <script src="js/app.js"></script>
         {% endif %}
         <script>
-            WebFontConfig = {
-                google: { families: [ 'Amatic SC' ] }
-            };
-
-            (function(d) {
-                var wf = d.createElement('script'), s = d.scripts[0];
-                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
-                s.parentNode.insertBefore(wf, s);
-            })(document);
-
-            var config = {};
-            app.start(config);
+            app.start({
+                log: 'Hello World!'
+            });
         </script>
     </body>
 </html>

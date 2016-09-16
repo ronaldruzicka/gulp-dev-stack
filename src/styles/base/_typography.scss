@@ -3,7 +3,7 @@ h2,
 h3 {
     font-family: $font-family-fallback;
 
-    .wf-active & {
+    .fonts-loaded & {
         font-family: $font-family-heading;
     }
 }
@@ -11,4 +11,7 @@ h3 {
 p {
     font-size: $font-size-normal;
     line-height: $line-height;
+    .fonts-loaded & {
+        font-family: $font-family-text;
+    }
 }
