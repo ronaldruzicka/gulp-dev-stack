@@ -111,6 +111,7 @@
     "postcss-pxtorem": "^3.3.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "styleguide": "github:actum/styleguide",
     "svgxuse": "^1.1.20",
     "uglifyify": "^3.0.2",
     "vinyl-source-stream": "^1.1.0",
