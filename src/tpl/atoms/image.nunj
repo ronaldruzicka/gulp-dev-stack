@@ -1,0 +1,10 @@
+{% macro img(dSrc, tSrc, mSrc, altName) %}
+<div class="picture">
+    <picture>
+        <source srcset="{{ dSrc }}" media="(min-width: 992px)"></source>
+        <source srcset="{{ tSrc }}" media="(min-width: 544px)"></source>
+        <source srcset="{{ mSrc }}" media="(min-width: 320px)"></source>
+        <img src="{{ dSrc }}" srcset="{{ dSrc }}" alt="{{ altName }}">
+    </picture>
+</div>
+{% endmacro %}

@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ titile }}</title>
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower" rel="stylesheet">
-        {% if _prod %}
-        <link rel="stylesheet" href="css/style.min.css">
-        {% else %}
-        <link rel="stylesheet" href="css/style.css">
-        {% endif %}
+        <link rel="stylesheet" href="css/style{% if _prod %}.min{% endif %}.css">
+
+        <script>document.createElement('picture');</script>
+        <script src="js/picturefill.min.js" async></script>
     </head>
     <body>
         {% include "../components/header.nunj" %}
@@ -21,11 +20,7 @@
 
         {# {% include "../partials/footer.nunj" %} #}
 
-        {% if _prod %}
-        <script src="js/app.min.js"></script>
-        {% else %}
-        <script src="js/app.js"></script>
-        {% endif %}
+        <script src="js/app{% if _prod %}.min{% endif %}.js"></script>
         <script>
             app.start({
                 log: 'Hello World!'
