@@ -1,8 +1,8 @@
-{% from '../atoms/svg.nunj' import svg %}
+{% from '../atoms/icon.nunj' import icon %}
 
 <nav class="main-nav">
     <ul class="main-nav__list container">
-        <li class="main-nav__item"><a class="main-logo" href="#">{{ svg('gulp-logo', 'main-logo__svg-logo') }}</a></li>
+        <li class="main-nav__item"><a class="main-logo" href="#">{{ icon('gulp-logo', 'gulp-logo', 'main-logo__svg-logo') }}</a></li>
         <li class="main-nav__item"><a class="main-nav__link" href="#">Home</a></li>
         <li class="main-nav__item"><a class="main-nav__link" href="#">Grid</a></li>
         <li class="main-nav__item"><a class="main-nav__link" href="#">Typography</a></li>
