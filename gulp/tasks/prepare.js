@@ -6,7 +6,7 @@ const runSequence = require('run-sequence');
 const isProd = argv.prod || false;
 
 // Consider favicon task as seperate task out of devSequence
-const devSequence = ['clean', 'icon', ['styles', 'js', 'tpl'], ['generate-favicon', 'inject-favicon-markups', 'styleguide']];
+const devSequence = ['clean', 'icon', 'copyJs', ['styles', 'js', 'tpl'], ['generate-favicon', 'inject-favicon-markups', 'styleguide']];
 const buildSequence = [...devSequence];
 const sequence = isProd ? buildSequence : devSequence;
 

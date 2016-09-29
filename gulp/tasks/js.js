@@ -16,10 +16,11 @@ const watchify = require('watchify');
 
 // const {
 //     names,
-//     paths: { src, dist }
+//     paths: { src, dist, npm }
 // } = config;
 const dist = config.paths.dist;
 const names = config.names;
+const npm = config.paths.npm;
 const src = config.paths.src;
 
 const isProd = argv.prod || false;
@@ -46,5 +47,12 @@ const bundle = () => {
         .on('log', gutil.log);
     return rebundle();
 };
+
+gulp.task('copyJs', () => {
+    return gulp.src([
+        `${npm}/picturefill/dist/picturefill.min.js`
+    ])
+    .pipe(gulp.dest(dist.js));
+});
 
 gulp.task('js', ['lint'], bundle);

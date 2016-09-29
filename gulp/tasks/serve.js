@@ -11,7 +11,6 @@ const runSequence = require('run-sequence');
 //     paths: { gulpfile, npm, src, dist }
 // } = config;
 const dist = config.paths.dist;
-const gulpfile = config.paths.gulpfile;
 const npm = config.paths.npm;
 const port = config.port;
 const src = config.paths.src;
